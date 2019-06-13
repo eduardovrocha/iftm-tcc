@@ -13,9 +13,9 @@ Category.create!([
 ])
 
 Product.create!([
-    {name: 'Lord of The Rings', price: 90.5},
-    {name: 'Notebook', price: 890.0 },
-    {name: 'Macbook Pro', price: 1250.0 },
-    {name: 'PC Gamer', price: 1200.0 },
-    {name: 'Rails for Dummies', price: 100.99}
+    {name: 'Lord of The Rings', price: 90.5, description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", img_url: "", category_id: 2},
+    {name: 'Notebook', price: 890.0, description: "Nulla eu imperdiet purus. Maecenas sem ante, molestie ut co.", img_url: "", category_id: 3},
+    {name: 'Macbook Pro', price: 1250.0, description: "Nam eleifend maximus tortor, at mollis arcu cursus sit amet. ", img_url: "", category_id: 3 },
+    {name: 'PC Gamer', price: 1200.0, description: "Donec aliquet odio ac rhoncus cursus. Aliquam orci ante.", img_url: "", category_id: 3 },
+    {name: 'Rails for Dummies', price: 100.99, description: "Cras fringilla convallis sem vel faucibus. Nulla eu imperdiet purus. Maecenas sem ante.", img_url: "", category_id: 2}
 ])
