@@ -33,3 +33,8 @@ Order.create!([
     {moment: Date.new(2019, 6, 12), order_status: OrderStatus.statuses[:paid], user_id: 2},
     {moment: Date.new(2019, 6, 11), order_status: OrderStatus.statuses[:waiting_payment], user_id: 2}
 ])
+
+OrderItem.create!([
+    {quantity: 1, price: 10.02, product_id: 1, order_id: 1},
+    {quantity: 1, price: 10.22, product_id: 1, order_id: 1},
+                  ])
