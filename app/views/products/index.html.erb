@@ -1,10 +1,14 @@
-<p id="notice"><%= notice %></p>
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4" data-controller="products">
 
-<h1>Products</h1>
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+    <h1 class="h2"><i class="fe-h2 fe-gift feather_icon"></i>Products</h1>
+  </div>
 
-<table class="table">
+  <p id="notice"><%= notice %></p>
 
-  <thead>
+  <table class="table">
+
+    <thead>
     <tr>
       <th>Image</th>
       <th>Name</th>
@@ -13,9 +17,9 @@
       <th></th>
       <th></th>
     </tr>
-  </thead>
+    </thead>
 
-  <tbody>
+    <tbody>
     <% @products.each do |product| %>
       <tr>
         <td>image</td>
@@ -27,9 +31,9 @@
         <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
 
-<br>
+  <%= link_to 'New Product', new_product_path, :class => 'btn btn-primary' %>
 
-<%= link_to 'New Product', new_product_path %>
+</main>

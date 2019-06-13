@@ -12,7 +12,56 @@
   </head>
 
   <body>
-    <%= yield %>
+
+  <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+    <a id="nav-bar-brand-link" class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Educando Web</a>
+    <!--<input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+      <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+          <a class="nav-link" href="#">Sign out</a>
+        </li>
+      </ul>-->
+    <%# if user_signed_in? %>
+    <!--    <li>-->
+    <%#= link_to('Logout', destroy_user_session_path, method: :delete) %>
+    <!--    </li>-->
+    <%# else %>
+    <!--    <li>-->
+    <%#= link_to('Login', new_user_session_path) %>
+    <!--    </li>-->
+    <%# end %>
+  </nav>
+
+  <div class="container-fluid" data-controller="<%= controller_name %>">
+
+    <div class="margin-body-full row">
+
+      <nav id="navigation-menu" class="col-md-2 d-none d-md-block bg-light sidebar">
+        <div class="sidebar-sticky">
+          <ul id="admin-menu" class="nav flex-column">
+
+            <li class="nav-item">
+              <%= link_to products_path, :class => "nav-link" do %>
+                <i class="fe fe-home feather feather_icon"></i> Products
+              <% end %>
+            </li>
+
+            <li class="nav-item">
+              <%= link_to categories_path, :class => "nav-link" do %>
+                <i class="fe fe-shopping-bag feather feather_icon"></i>Categories
+              <% end %>
+            </li>
+
+          </ul>
+        </div>
+      </nav>
+
+      <%= yield %>
+
+    </div>
+
+  </div>
+
   </body>
 
 </html>

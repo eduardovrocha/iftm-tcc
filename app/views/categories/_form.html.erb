@@ -1,22 +1,43 @@
 <%= form_with(model: category, local: true) do |form| %>
-  <% if category.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
 
-      <ul>
-        <% category.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
+  <div class="form-group">
+    <div class="form-row">
+      <div class="col">
+        <% if category.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(category.errors.count, "error") %> prohibited this product from being saved:</h2>
+            <ul>
+              <% category.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
         <% end %>
-      </ul>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="form-group">
+    <div class="form-row">
+      <div class="col">
+        <%= form.text_field :name, :class => 'form-control', :placeholder => 'Name' %>
+      </div>
+    </div>
   </div>
+
+  <div class="form-row">
+    <div class="col">
+      <% if (action_name == 'new' || action_name == 'create') %>
+        <%= form.submit :class => 'btn btn-primary space-10-top button-default' %>
+        <%= link_to 'Back', categories_path, :class => 'btn btn-info space-10-top button-default' %>
+      <% elsif (action_name == 'show') %>
+        <%= link_to 'Edit', edit_category_path(@category), :class => 'btn btn-primary space-10-top button-default' %>
+        <%= link_to 'Back', categories_path, :class => 'btn btn-info space-10-top button-default' %>
+      <% elsif (action_name == 'edit' || action_name == 'update') %>
+        <%= form.submit :class => 'btn btn-primary space-10-top button-default' %>
+        <%= link_to 'Back', categories_path, :class => 'btn btn-info space-10-top button-default' %>
+      <% end %>
+    </div>
+  </div>
+
 <% end %>

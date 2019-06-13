@@ -1,5 +1,11 @@
-<h1>New Product</h1>
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
 
-<%= render 'form', product: @product %>
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+    <h1 class="h2"><i class="fe-h2 fe-gift feather_icon"></i>New Products</h1>
+  </div>
 
-<%= link_to 'Back', products_path %>
+  <%= render 'form', product: @product %>
+
+  <br>
+
+</main>

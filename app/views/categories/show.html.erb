@@ -1,9 +1,33 @@
-<p id="notice"><%= notice %></p>
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
 
-<p>
-  <strong>Name:</strong>
-  <%= @category.name %>
-</p>
+  <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+    <h1 class="h2"><i class="fe-h2 fe-gift feather_icon"></i>
+      Category
+    </h1>
+  </div>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+  <dl>
+    <dt>
+      <label>Name</label>
+    </dt>
+    <dd>
+      <%= @category.name %>
+    </dd>
+  </dl>
+
+  <div class="form-row">
+    <div class="col">
+      <% if (action_name == 'new' || action_name == 'create') %>
+        <%= form.submit :class => 'btn btn-primary space-10-top button-default' %>
+        <%= link_to 'Back', categories_path, :class => 'btn btn-info space-10-top button-default' %>
+      <% elsif (action_name == 'show') %>
+        <%= link_to 'Edit', edit_category_path(@category), :class => 'btn btn-primary space-10-top button-default' %>
+        <%= link_to 'Back', categories_path, :class => 'btn btn-info space-10-top button-default' %>
+      <% elsif (action_name == 'edit' || action_name == 'update') %>
+        <%= form.submit :class => 'btn btn-primary space-10-top button-default' %>
+        <%= link_to 'Back', categories_path, :class => 'btn btn-info space-10-top button-default' %>
+      <% end %>
+    </div>
+  </div>
+
+</main>
