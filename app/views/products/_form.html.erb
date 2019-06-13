@@ -8,8 +8,27 @@
           <li><%= message %></li>
         <% end %>
       </ul>
+
     </div>
   <% end %>
+
+  <div>
+    <%= form.select :category_id, Category.all.collect {|category| [category.name, category.id]},
+                    {:prompt => "Category"}, {:class => "custom-select"} %>
+
+  </div>
+
+  <div>
+    <%= form.text_field :name, :class => 'form-control', :placeholder => 'Name' %>
+  </div>
+
+  <div>
+    <%= form.text_field :price, :class => 'form-control', :placeholder => 'Price' %>
+  </div>
+
+  <div>
+    <%= form.text_field :description, :class => 'form-control', :placeholder => 'Description' %>
+  </div>
 
   <div class="actions">
     <%= form.submit %>
