@@ -23,4 +23,13 @@ Product.create!([
 User.create!([
     {name: 'Eduardo', email: 'evr.online.lessons@gmail.com', phone: '34 9 9113-9183'},
     {name: 'Nelio', email: 'nelio.cursos@gmail.com', phone: '34 9 9000-0009'}
-             ])
+])
+
+Order.create!([
+    {moment: Date.new(2019, 2, 13), order_status: OrderStatus.statuses[:waiting_payment], user_id: 1},
+    {moment: Date.new(2019, 2, 12), order_status: OrderStatus.statuses[:paid], user_id: 1},
+    {moment: Date.new(2019, 4, 11), order_status: OrderStatus.statuses[:waiting_payment], user_id: 1},
+    {moment: Date.new(2019, 4, 13), order_status: OrderStatus.statuses[:waiting_payment], user_id: 1},
+    {moment: Date.new(2019, 6, 12), order_status: OrderStatus.statuses[:paid], user_id: 2},
+    {moment: Date.new(2019, 6, 11), order_status: OrderStatus.statuses[:waiting_payment], user_id: 2}
+])
