@@ -1,4 +1,34 @@
 <p id="notice"><%= notice %></p>
 
+<%#= render 'form', product: @product %>
+
+<dl class="">
+  <dt>
+    <label>Name</label>
+  </dt>
+  <dd>
+    <%= @product.name %>
+  </dd>
+  <dt>
+    <label>description</label>
+  </dt>
+  <dd>
+    <%= @product.description %>
+  </dd>
+  <dt>
+    <label>price</label>
+  </dt>
+  <dd>
+    <%= @product.price %>
+  </dd>
+  <dt>
+    <label>category</label>
+  </dt>
+  <dd>
+    <%= @product.category.name %>
+  </dd>
+</dl>
+
+
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>
