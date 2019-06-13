@@ -19,3 +19,8 @@ Product.create!([
     {name: 'PC Gamer', price: 1200.0, description: "Donec aliquet odio ac rhoncus cursus. Aliquam orci ante.", img_url: "", category_id: 3 },
     {name: 'Rails for Dummies', price: 100.99, description: "Cras fringilla convallis sem vel faucibus. Nulla eu imperdiet purus. Maecenas sem ante.", img_url: "", category_id: 2}
 ])
+
+User.create!([
+    {name: 'Eduardo', email: 'evr.online.lessons@gmail.com', phone: '34 9 9113-9183'},
+    {name: 'Nelio', email: 'nelio.cursos@gmail.com', phone: '34 9 9000-0009'}
+             ])
