@@ -17,10 +17,23 @@
     <tbody>
     <% @categories.each do |category| %>
       <tr>
+        <th scope="row"><%= category.id %></th>
         <td><%= category.name %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+        <th>
+          <div class="btn-toolbar fix-right" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group btn-group-sm mr-2" role="group" aria-label="First group">
+              <%= link_to category_path(category), :class => 'btn btn-secondary' do %>
+                <i class="fe with_label fe-eye feather_icon span_with_feather"></i> Show
+              <% end %>
+              <%= link_to edit_category_path(category), :class => 'btn btn-secondary' do %>
+                <i class="fe with_label fe-line-chart feather_icon span_with_feather"></i>Edit
+              <% end %>
+              <%= link_to category_path(category), method: :delete, data: {confirm: 'Are you sure?'}, :class => 'btn btn-secondary' do %>
+                <i class="fe with_label fe-trash feather_icon span_with_feather"></i>Delete
+              <% end %>
+            </div>
+          </div>
+        </th>
       </tr>
     <% end %>
     </tbody>

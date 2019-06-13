@@ -13,22 +13,40 @@
       <th>Image</th>
       <th>Name</th>
       <th>Price</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>Actions</th>
     </tr>
     </thead>
 
     <tbody>
     <% @products.each do |product| %>
       <tr>
-        <td>image</td>
+
+        <td><%# image %></td>
+
         <td><%= product.name %></td>
+
         <td>$ <%= product.price %></td>
 
-        <td><%= link_to 'Show', product %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <div class="btn-toolbar fix-right" role="toolbar" aria-label="Toolbar with button groups">
+            <div class="btn-group btn-group-sm mr-2" role="group" aria-label="First group">
+
+              <%= link_to product_path(product), :class => 'btn btn-secondary' do %>
+                <i class="fe with_label fe-eye feather_icon span_with_feather"></i> Show
+              <% end %>
+
+              <%= link_to edit_product_path(product), :class => 'btn btn-secondary' do %>
+                <i class="fe with_label fe-line-chart feather_icon span_with_feather"></i>Edit
+              <% end %>
+
+              <%= link_to product_path(product), method: :delete, data: {confirm: 'Are you sure?'}, :class => 'btn btn-secondary' do %>
+                <i class="fe with_label fe-trash feather_icon span_with_feather"></i>Delete
+              <% end %>
+
+            </div>
+          </div>
+        </td>
+
       </tr>
     <% end %>
     </tbody>
