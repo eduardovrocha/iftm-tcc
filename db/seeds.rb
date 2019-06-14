@@ -35,6 +35,13 @@ Order.create!([
 ])
 
 OrderItem.create!([
-    {quantity: 1, price: 10.02, product_id: 1, order_id: 1},
-    {quantity: 1, price: 10.22, product_id: 1, order_id: 1},
-                  ])
+    {quantity: 2, price: 90.5, product_id: 1, order_id: 1},
+    {quantity: 1, price: 1200.0, product_id: 4, order_id: 1},
+    {quantity: 1, price: 1200.0, product_id: 4, order_id: 2},
+    {quantity: 1, price: 890.0, product_id: 2, order_id: 3},
+    {quantity: 2, price: 1250.0, product_id: 3, order_id: 3},
+    {quantity: 1, price: 100.99, product_id: 5, order_id: 4},
+    {quantity: 2, price: 1200.0, product_id: 4, order_id: 5},
+    {quantity: 1, price: 1250.0, product_id: 3, order_id: 5},
+    {quantity: 1, price: 1200.0, product_id: 4, order_id: 6}
+])
