@@ -37,13 +37,13 @@
     <div class="col">
       <% if (action_name == 'new' || action_name == 'create') %>
         <%= form.submit :class => 'btn btn-primary space-10-top button-default' %>
-        <%= link_to 'Back', products_path, :class => 'btn btn-info space-10-top button-default' %>
+        <%= link_to 'Back', admin_products_path, :class => 'btn btn-info space-10-top button-default' %>
       <% elsif (action_name == 'edit' || action_name == 'update') %>
         <%= form.submit :class => 'btn btn-primary space-10-top button-default' %>
-        <%= link_to 'Back', products_path, :class => 'btn btn-info space-10-top button-default' %>
+        <%= link_to 'Back', admin_products_path, :class => 'btn btn-info space-10-top button-default' %>
       <% elsif (action_name == 'show') %>
-        <%= link_to 'Edit', edit_product_path(@product), :class => 'btn btn-primary space-10-top button-default' %>
-        <%= link_to 'Back', products_path, :class => 'btn btn-info space-10-top button-default' %>
+        <%= link_to 'Edit', edit_admin_product_path(@product), :class => 'btn btn-primary space-10-top button-default' %>
+        <%= link_to 'Back', admin_products_path, :class => 'btn btn-info space-10-top button-default' %>
       <% end %>
     </div>
   </div>
