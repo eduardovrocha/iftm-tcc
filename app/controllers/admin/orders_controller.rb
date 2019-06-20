@@ -7,7 +7,7 @@ class Admin::OrdersController < Admin::AdminController
     if (params['order'].nil?)
       @_orders = Order.all
     else
-      @_orders = Order.all
+      @_orders = Order.search_params(params)
     end
     @orders_size = @_orders.count
     @orders = @_orders.paginate(page: params[:page], per_page: 5)
