@@ -1,0 +1,65 @@
+@import "../feathericon";
+
+.user-signed {
+  margin-left: 15px;
+  opacity: 0.5;
+}
+
+.nav-item {
+  margin-left: 10px !important;
+  a {
+    color: white !important;
+  }
+  .nav-link {
+    i.fe {
+      margin-right: 7px;
+    }
+  }
+}
+
+#nav-bar-brand-link {
+  padding-top: 12px !important;
+  padding-bottom: 12px !important;
+  font-size: 16px;
+  background-color: transparent !important;
+  padding-right: 10px;
+  i {
+    font-size: 19px;
+    margin-right: 7px;
+  }
+}
+
+.jumbotron {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  margin-bottom: 0;
+  background-color: #fff;
+}
+
+@media (min-width: 768px) {
+  .jumbotron {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+.jumbotron p:last-child {
+  margin-bottom: 0;
+}
+
+.jumbotron-heading {
+  font-weight: 300;
+}
+
+.jumbotron .container {
+  max-width: 40rem;
+}
+
+footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+footer p {
+  margin-bottom: .25rem;
+}

@@ -1,0 +1,97 @@
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">Album example</h1>
+    <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc.
+      Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+    <p>
+      <a href="#" class="btn btn-primary my-2">Main call to action</a>
+      <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+    </p>
+  </div>
+</section>
+
+<div class="album py-5 bg-light">
+  <div class="container">
+
+    <div class="form-group">
+      <%= form_tag(shop_products_path(model: [:shop, @products]), method: 'GET') do %>
+        <div class="form-row">
+
+          <div class="col">
+            <label>Filter</label>
+            <%= text_field_tag 'product[name]', nil, {:class => 'form-control', :data => {}, :placeholder => 'Product Name'} %>
+          </div>
+
+          <div class="col">
+            <label>Category</label>
+            <%= select 'product', 'category', Category.all.collect {|param_key| [param_key.name, param_key.id]}, {:prompt => 'Select one'}, {:class => 'custom-select'} %>
+          </div>
+
+          <div class="col">
+            <label style="width: 100%; text-align: right">.</label>
+            <%= button_tag(type: "submit", :class => 'btn btn-info button-default', :style => 'float: right; width: 100%') do %>
+              <i class="fe with_label fe-search feather_icon span_with_feather"></i> Search
+            <% end %>
+          </div>
+
+        </div>
+      <% end %>
+    </div>
+
+    <hr>
+
+    <div class="form-group">
+      <div class="form-row">
+        <!-- paginate -->
+      </div>
+    </div>
+
+    <style>
+      .card-body > p {
+        min-height: 80px;
+      }
+    </style>
+
+    <div class="row">
+
+      <% @products.each do |product| %>
+
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+
+            <style>
+              .box-img {
+                height: 340px;
+                overflow: hidden;
+              }
+            </style>
+
+            <div class="box-img">
+              <!-- product image -->
+            </div>
+
+            <div class="card-body">
+              <h4>$ <%= product.price %></h4>
+              <p class="card-text"><%= truncate(product.description, length: 90) %></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <%= link_to "detail product", {}, :class => 'btn btn-sm btn-success' %>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      <% end %>
+
+    </div>
+
+    <div class="form-group">
+      <div class="form-row">
+        <!-- paginate -->
+      </div>
+    </div>
+
+  </div>
+</div>
