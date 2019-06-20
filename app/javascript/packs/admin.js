@@ -6,7 +6,10 @@
 require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
+require("flatpickr/dist/flatpickr.css")
 require("channels")
+
+import "flatpickr"
 
 import '../stylesheets/application.scss'
 
@@ -21,6 +24,12 @@ const context_admin = require.context("controllers/admin", true, /.js$/)
 application.load(definitionsFromContext(context_admin))
 
 document.addEventListener("turbolinks:load", () => {
+
+    flatpickr("[data-behavior='flatpickr']", {
+        altInput: true,
+        altFormat: "F j, Y",
+        dateFormat: "Y-m-d",
+    })
 
 })
 
