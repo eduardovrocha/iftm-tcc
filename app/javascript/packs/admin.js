@@ -20,8 +20,8 @@ import {Application} from "stimulus"
 import {definitionsFromContext} from "stimulus/webpack-helpers"
 
 const application = Application.start()
-const context_admin = require.context("controllers/admin", true, /.js$/)
-application.load(definitionsFromContext(context_admin))
+// const context_admin = require.context("controllers/admin", true, /.js$/)
+// application.load(definitionsFromContext(context_admin))
 
 document.addEventListener("turbolinks:load", () => {
 

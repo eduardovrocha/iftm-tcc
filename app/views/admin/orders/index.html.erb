@@ -39,10 +39,8 @@
         <thead>
           <tr>
           <th scope="col">#</th>
-          <th scope="col">Moment</th>
-          <th scope="col">Order Status</th>
           <th scope="col">Date</th>
-          <th scope="col">Total $</th>
+          <th scope="col">Order Status</th>
           <th></th>
         </tr>
         </thead>
@@ -50,25 +48,17 @@
           <% @orders.each do |order| %>
             <tr>
               <th scope="row"><%= order.id %></th>
-              <td><%= order.moment %></td>
+              <td><%= (order.moment).strftime("%d/%m/%Y") %></td>
               <td><%= show_order_status(order.order_status) %></td>
-              <th><%= order.created_at %></th>
-              <th><%= order.total %></th>
-              <th>
+              <td>
                 <div class="btn-toolbar fix-right" role="toolbar" aria-label="Toolbar with button groups">
                   <div class="btn-group btn-group-sm mr-2" role="group" aria-label="First group">
                     <%= link_to admin_order_path(order), :class => 'btn btn-secondary' do %>
                       <i class="fe with_label fe-eye feather_icon span_with_feather"></i> Show
                     <% end %>
-                    <%= link_to edit_admin_order_path(order), :class => 'btn btn-secondary' do %>
-                      <i class="fe with_label fe-line-chart feather_icon span_with_feather"></i>Edit
-                    <% end %>
-                    <%= link_to admin_order_path(order), method: :delete, data: {confirm: 'Are you sure?'}, :class => 'btn btn-secondary' do %>
-                      <i class="fe with_label fe-trash feather_icon span_with_feather"></i>Delete
-                    <% end %>
                   </div>
                 </div>
-              </th>
+              </td>
             </tr>
           <% end %>
         </tbody>
