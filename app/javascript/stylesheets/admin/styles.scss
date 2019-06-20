@@ -1,5 +1,10 @@
 @import "../feathericon";
 
+ul#admin-menu a {
+  color: black !important;
+  margin-right: 5px;
+}
+
 .jumbotron {
   padding-top: 3rem;
   padding-bottom: 3rem;
@@ -197,4 +202,9 @@ body {
 
 .fix-right {
   float: right;
+}
+
+/* order */
+.hold-order-content {
+  margin-bottom: 15px;
 }
