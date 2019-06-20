@@ -21,7 +21,7 @@
 
         <div class="col">
           <label>Status</label>
-          <%= select 'order', 'status', OrderStatus.statuses.collect {|param_key| [param_key[1], param_key[0]]}, {:prompt => 'Select one'}, {:class => 'custom-select'} %>
+          <%= select 'order', 'status', OrderStatus.statuses.collect {|param_key| [show_order_status(param_key[1]), param_key[1]]}, {:prompt => 'Select one'}, {:class => 'custom-select'} %>
         </div>
 
         <div class="col">
@@ -51,7 +51,7 @@
             <tr>
               <th scope="row"><%= order.id %></th>
               <td><%= order.moment %></td>
-              <td><%# show_order_status(order.order_status) %></td>
+              <td><%= show_order_status(order.order_status) %></td>
               <th><%= order.created_at %></th>
               <th><%= order.total %></th>
               <th>
