@@ -25,6 +25,7 @@ gem 'jbuilder', '~> 2.5'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+# will_paginate
 gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-bootstrap4'
 

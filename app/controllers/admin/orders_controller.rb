@@ -4,7 +4,13 @@ class Admin::OrdersController < Admin::AdminController
   # GET /orders
   # GET /orders.json
   def index
-    @orders = Order.all
+    if (params['order'].nil?)
+      @_orders = Order.all
+    else
+      @_orders = Order.all
+    end
+    @orders_size = @_orders.count
+    @orders = @_orders.paginate(page: params[:page], per_page: 5)
   end
 
   # GET /orders/1

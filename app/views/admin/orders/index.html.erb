@@ -76,7 +76,9 @@
           <tr>
             <th colspan="3"></th>
             <th colspan="3">
-              <!-- pagination -->
+              <% if @orders_size > 5 %>
+                <%= will_paginate @orders, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: ['pagination pagination fix-right'] %>
+              <% end %>
             </th>
           </tr>
         </tfoot>
