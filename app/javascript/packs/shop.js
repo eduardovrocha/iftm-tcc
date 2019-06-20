@@ -10,6 +10,20 @@ require("channels")
 
 import '../stylesheets/application.scss'
 
+// Load all the controllers within this directory and all subdirectories.
+// Controller files must be named *_controller.js.
+
+import {Application} from "stimulus"
+import {definitionsFromContext} from "stimulus/webpack-helpers"
+
+const application = Application.start()
+const context_shop = require.context("controllers/shop", true, /.js$/)
+application.load(definitionsFromContext(context_shop))
+
+document.addEventListener("turbolinks:load", () => {
+
+})
+
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
