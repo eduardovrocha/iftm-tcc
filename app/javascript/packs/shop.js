@@ -17,8 +17,8 @@ import {Application} from "stimulus"
 import {definitionsFromContext} from "stimulus/webpack-helpers"
 
 const application = Application.start()
-// const context_shop = require.context("controllers/shop", true, /.js$/)
-// application.load(definitionsFromContext(context_shop))
+const context_shop = require.context("controllers/shop", true, /.js$/)
+application.load(definitionsFromContext(context_shop))
 
 document.addEventListener("turbolinks:load", () => {
 

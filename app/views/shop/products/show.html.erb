@@ -16,7 +16,7 @@
           </div>
           <div class="jumbotron">
 
-            <div id="shop-product" class="row marketing margin-bottom-100" data-controller="product">
+            <div id="shop-product" class="row marketing margin-bottom-100" data-controller="cart">
 
               <div id="shop-product-image" class="col col-lg-4">
                 <!-- product image -->
@@ -25,23 +25,15 @@
               <div id="shop-product-info" class="col col-lg-8">
                 <h1><strong><%= @product.name %></strong> - $<span id="product-price"><%= @product.price %></span></h1>
                 <p class="lead"><%= @product.description %></p>
-                <div class="form-row">
-                  <div class="form-group">
-                    <div class="col">
-                      <input id="product-qtd" value="1" type="text" class="form-control" placeholder="0">
-                    </div>
-                  </div>
-                </div>
-                <%= link_to '/shop/cart', :class => 'btn btn-lg btn-success', :data => {action: 'click->product#addToCart', id: @product.id} do %>
+                <%= link_to '/shop/cart', :class => 'btn btn-lg btn-success', :data => {action: 'click->cart#addToCart',
+                                                                                        item: {product_id: @product.id, img_url: @product.img_url,
+                                                                                            name: @product.name, price: @product.price, quantity: 1,
+                                                                                        }} do %>
                   <i class="fe fe-cart"></i> Add to cart
                 <% end %>
               </div>
 
             </div>
-
-            <footer class="footer">
-
-            </footer>
 
           </div>
         </div>
