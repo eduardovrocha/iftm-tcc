@@ -32,7 +32,7 @@
                     </div>
                   </div>
                 </div>
-                <%= link_to '', :class => 'btn btn-lg btn-success', :data => {action: 'click->product#addToCart', id: @product.id} do %>
+                <%= link_to '/shop/cart', :class => 'btn btn-lg btn-success', :data => {action: 'click->product#addToCart', id: @product.id} do %>
                   <i class="fe fe-cart"></i> Add to cart
                 <% end %>
               </div>
