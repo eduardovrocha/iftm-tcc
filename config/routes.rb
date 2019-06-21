@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root :to => 'shop/products#index'
+
   namespace :admin do
 
     root :to => 'products#index'
@@ -17,6 +19,7 @@ Rails.application.routes.draw do
     root :to => 'products#index'
 
     get '/products', to: 'products#index'
+    get '/products/:id', to: 'products#show', as: 'product_detail'
 
   end
 

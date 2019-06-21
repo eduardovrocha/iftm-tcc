@@ -1,0 +1,56 @@
+<div class="container dark-grey-text mt-5" style="margin-top: 0px !important;">
+
+  <div class="row">
+
+    <div class="form-group">
+      <div class="form-row">
+
+        <div class="container">
+          <div class="header clearfix">
+            <nav>
+              <ol id="breadcrumb-menu" class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Shop Products</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><%= @product.category.name %></li>
+              </ol>
+            </nav>
+          </div>
+          <div class="jumbotron">
+
+            <div id="shop-product" class="row marketing margin-bottom-100" data-controller="product">
+
+              <div id="shop-product-image" class="col col-lg-4">
+                <!-- product image -->
+              </div>
+
+              <div id="shop-product-info" class="col col-lg-8">
+                <h1><strong><%= @product.name %></strong> - $<span id="product-price"><%= @product.price %></span></h1>
+                <p class="lead"><%= @product.description %></p>
+                <div class="form-row">
+                  <div class="form-group">
+                    <div class="col">
+                      <input id="product-qtd" value="1" type="text" class="form-control" placeholder="0">
+                    </div>
+                  </div>
+                </div>
+                <%= link_to '', :class => 'btn btn-lg btn-success', :data => {action: 'click->product#addToCart', id: @product.id} do %>
+                  <i class="fe fe-cart"></i> Add to cart
+                <% end %>
+              </div>
+
+            </div>
+
+            <footer class="footer">
+
+            </footer>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="card-deck mb-3 text-center"></div>
+
+  </div>
+
+</div>

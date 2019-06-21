@@ -75,7 +75,7 @@
               <p class="card-text"><%= truncate(product.description, length: 90) %></p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <%= link_to "detail product", {}, :class => 'btn btn-sm btn-success' %>
+                  <%= link_to "detail #{product.name}", shop_product_detail_path(product), :class => 'btn btn-sm btn-success' %>
                 </div>
               </div>
             </div>
