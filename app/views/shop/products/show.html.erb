@@ -25,7 +25,7 @@
               <div id="shop-product-info" class="col col-lg-8">
                 <h1><strong><%= @product.name %></strong> - $<span id="product-price"><%= @product.price %></span></h1>
                 <p class="lead"><%= @product.description %></p>
-                <%= link_to '/shop/cart', :class => 'btn btn-lg btn-success', :data => {action: 'click->cart#addToCart',
+                <%= link_to '/shop/cart', :class => 'btn btn-lg btn-success', :data => {action: 'click->cart#onAddToCart',
                                                                                         item: {product_id: @product.id, img_url: @product.img_url,
                                                                                             name: @product.name, price: @product.price, quantity: 1,
                                                                                         }} do %>

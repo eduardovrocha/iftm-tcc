@@ -1,0 +1,47 @@
+<li class="order-item list-group-item  d-flex justify-content-between bg-light">
+
+  <div class="order-item-body" style="max-width: 50%">
+    <div class="item-img-product">
+      <%= image_tag('img-not-found.png', :size => 100, :class => {}) %>
+    </div>
+    <div class="item-info-product">
+      <h6 class="my-0 message-success" data-id="">
+        <a href="#" class="item-product-name">not defined !</a>
+      </h6>
+      <p>
+        <small class="atention-info">
+          <strong>Quantity: </strong><span class="item-qtd">not defined !</span>
+        </small>
+        <br>
+        <small class="atention-info">
+          <strong>Unit Price: $ </strong><span class="item-vlr-und">not defined !</span>
+        </small>
+      </p>
+      <p>
+
+        <button data-action='click->cart#onIncreaseQuantity' data-info=""
+                class="add-qty ctrl-qtd-item badge badge-success badge-pill">
+          <i class="fe fe-plus"></i>
+        </button>
+
+        <button data-action='click->cart#onDecreaseQuantity' data-info=""
+                class="rem-qty ctrl-qtd-item badge badge-warning badge-pill">
+          <i class="fe fe-minus"></i>
+        </button>
+
+        <button data-action='click->cart#onRemoveItem' data-info=""
+                class="delete-item ctrl-qtd-item badge badge-danger badge-pill">
+          <i class="fe fe-trash"></i>
+        </button>
+
+      </p>
+    </div>
+  </div>
+
+  <div class="order-item-resume">
+    <h6 class="my-0">
+      <strong>$ <span class="item-vlr-total">not defined !</span></strong>
+    </h6>
+  </div>
+
+</li>
