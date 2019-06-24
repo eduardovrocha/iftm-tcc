@@ -27,6 +27,7 @@ export default class extends Controller {
                 itemLi.find('.item-qtd')[0].innerText = item.quantity
                 itemLi.find('.item-vlr-und')[0].innerText = item.price
                 itemLi.find('.item-vlr-total')[0].innerText = this.formatDecimalValue(this.subTotal(item.price, item.quantity))
+                itemLi.find('.item-img-product > img')[0].setAttribute('src',item.img_url.thumb.url)
                 /*
                     set data-product_id
                 */
