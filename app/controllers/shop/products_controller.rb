@@ -4,29 +4,13 @@ class Shop::ProductsController < Shop::ShopController
   # GET /products
   # GET /products.json
   def index
-
     if (params['product'].nil?)
       @_products = Product.all
     else
-
-      if !(params['product']['name'].blank?) && !(params['product']['category'].blank?)
-        @_products = Product.by_name_category(params['product']['name'], params['product']['category'])
-      end
-
-      if (params['product']['name'].blank?)
-        @_products = Product.by_category(params['product']['category'])
-      end
-
-      if (params['product']['category'].blank?)
-        @_products = Product.by_name(params['product']['name'])
-      end
-
+      @_products = Product.search_params(params)
     end
-
     @products_size = @_products.count
-    # @products = @_products.paginate(page: params[:page], per_page: 6).order('updated_at DESC')
-    @products = @_products.paginate(page: params[:page], per_page: 6)
-
+    @products = @_products.paginate(page: params[:page], per_page: 5)
   end
 
   def show
