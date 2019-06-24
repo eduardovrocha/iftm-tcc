@@ -4,6 +4,8 @@ class Product < ApplicationRecord
   has_many :orders, :through => :order_items
   has_many :order_items
 
+  mount_uploader :img_url, ProductUploader
+
   # data scope
   scope :by_name, -> (name) {
     where(name: name)
