@@ -64,6 +64,30 @@ footer p {
   margin-bottom: .25rem;
 }
 
+// index product
+
+// correção
+.card-body > p {
+  min-height: 80px;
+}
+//
+
+.box-img {
+  height: 347px;
+  overflow: hidden;
+  a {
+    img {
+      width: 100%;
+    }
+  }
+}
+
+#shop-product-image {
+  img {
+    width: 100%;
+  }
+}
+
 // show product
 
 #breadcrumb-menu {

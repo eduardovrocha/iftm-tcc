@@ -21,7 +21,13 @@
     <% @products.each do |product| %>
       <tr>
 
-        <td><%# image %></td>
+        <td>
+          <% if product.img_url.thumb.blank? %>
+            <%= image_tag('img-not-found-thumb.png', :id => 'image_unavailable', :class => 'image_sized') %>
+          <% else %>
+            <img src="<%= product.img_url.thumb %>" id="image_available" class="image_sized rounded float-left" alt="Product Cover">
+          <% end %>
+        </td>
 
         <td><%= product.name %></td>
 

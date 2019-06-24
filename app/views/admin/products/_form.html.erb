@@ -22,8 +22,6 @@
     </div>
   </div>
 
-
-
   <div class="form-group">
     <div class="form-row">
       <div class="col">
@@ -46,6 +44,27 @@
         <%= form.text_area :description, :class => 'form-control rounded-0', :placeholder => 'Description' %>
       </div>
     </div>
+  </div>
+
+  <!-- image show / upload -->
+
+  <div class="form-group">
+    <div class="form-row">
+      <div class="col">
+
+        <% if product.img_url.thumb.blank? %>
+          <%= image_tag('img-not-found-medium.png', :id => 'image_unavailable', :class => 'image_sized') %>
+        <% else %>
+          <img src="<%= product.img_url.medium %>" id="image_available" class="image_sized rounded float-left" alt="Product Cover">
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="img_url">Upload image cover</label>
+    <%= form.file_field :img_url, :id => 'img_url', :class => 'form-control-file', :'data-action' => 'change -> products#clickToUpload' %>
   </div>
 
   <div class="form-row">

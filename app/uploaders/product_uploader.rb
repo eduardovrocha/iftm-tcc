@@ -35,7 +35,7 @@ class ProductUploader < CarrierWave::Uploader::Base
   # diferente dimensões para cada tipo de imagem
 
   version :large do
-    process resize_to_fit: [800, 800]
+    process resize_to_fit: [600, 600]
   end
 
   version :medium do
@@ -43,7 +43,7 @@ class ProductUploader < CarrierWave::Uploader::Base
   end
 
   version :thumb do
-    process resize_to_fit: [200, 200]
+    process resize_to_fit: [100, 100]
   end
 
 end

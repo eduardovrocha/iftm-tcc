@@ -6,45 +6,63 @@
     </h1>
   </div>
 
-  <dl class="">
-    <dt>
-      <label>Name</label>
-    </dt>
-    <dd>
-      <%= @product.name %>
-    </dd>
-    <dt>
-      <label>description</label>
-    </dt>
-    <dd>
-      <%= @product.description %>
-    </dd>
-    <dt>
-      <label>price</label>
-    </dt>
-    <dd>
-      <%= @product.price %>
-    </dd>
-    <dt>
-      <label>category</label>
-    </dt>
-    <dd>
-      <%= @product.category.name %>
-    </dd>
-  </dl>
+  <div class="form-row">
+    <div class="form-row">
+      <div class="col">
+        <dl class="">
+          <dt>
+            <label>Name</label>
+          </dt>
+          <dd>
+            <%= @product.name %>
+          </dd>
+          <dt>
+            <label>description</label>
+          </dt>
+          <dd>
+            <%= @product.description %>
+          </dd>
+          <dt>
+            <label>price</label>
+          </dt>
+          <dd>
+            <%= @product.price %>
+          </dd>
+          <dt>
+            <label>category</label>
+          </dt>
+          <dd>
+            <%= @product.category.name %>
+          </dd>
+          <dt>
+            <label>product image</label>
+          </dt>
+          <dd>
+            <% if @product.img_url.thumb.blank? %>
+              <%= image_tag('img-not-found-thumb.png', :id => 'image_unavailable', :class => 'image_sized') %>
+            <% else %>
+              <img src="<%= @product.img_url.medium %>" id="image_available" class="image_sized rounded float-left" alt="Product Cover">
+            <% end %>
+          </dd>
+        </dl>
+      </div>
+    </div>
+  </div>
 
   <div class="form-row">
-    <div class="col">
-      <% if (action_name == 'new' || action_name == 'create') %>
-        <%= form.submit :class => 'btn btn-primary space-10-top button-default' %>
-        <%= link_to 'Back', admin_products_path, :class => 'btn btn-info space-10-top button-default' %>
-      <% elsif (action_name == 'edit' || action_name == 'update') %>
-        <%= form.submit :class => 'btn btn-primary space-10-top button-default' %>
-        <%= link_to 'Back', admin_products_path, :class => 'btn btn-info space-10-top button-default' %>
-      <% elsif (action_name == 'show') %>
-        <%= link_to 'Edit', edit_admin_product_path(@product), :class => 'btn btn-primary space-10-top button-default' %>
-        <%= link_to 'Back', admin_products_path, :class => 'btn btn-info space-10-top button-default' %>
-      <% end %>
+    <div class="form-row">
+      <div class="col">
+        <% if (action_name == 'new' || action_name == 'create') %>
+          <%= form.submit :class => 'btn btn-primary space-10-top button-default' %>
+          <%= link_to 'Back', admin_products_path, :class => 'btn btn-info space-10-top button-default' %>
+        <% elsif (action_name == 'edit' || action_name == 'update') %>
+          <%= form.submit :class => 'btn btn-primary space-10-top button-default' %>
+          <%= link_to 'Back', admin_products_path, :class => 'btn btn-info space-10-top button-default' %>
+        <% elsif (action_name == 'show') %>
+          <%= link_to 'Edit', edit_admin_product_path(@product), :class => 'btn btn-primary space-10-top button-default' %>
+          <%= link_to 'Back', admin_products_path, :class => 'btn btn-info space-10-top button-default' %>
+        <% end %>
+      </div>
     </div>
   </div>
 

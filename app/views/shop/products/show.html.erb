@@ -18,11 +18,15 @@
 
             <div id="shop-product" class="row marketing margin-bottom-100" data-controller="cart">
 
-              <div id="shop-product-image" class="col col-lg-4">
-                <!-- product image -->
+              <div id="shop-product-image" class="col col-lg-6">
+                <% if @product.img_url.thumb.blank? %>
+                  <%= image_tag('img-not-found-large.png', :id => 'image_unavailable', :class => 'rounded float-left') %>
+                <% else %>
+                  <img src="<%= @product.img_url.large %>" id="image_available" class="rounded float-left" alt="Product Cover">
+                <% end %>
               </div>
 
-              <div id="shop-product-info" class="col col-lg-8">
+              <div id="shop-product-info" class="col col-lg-6">
                 <h1><strong><%= @product.name %></strong> - $<span id="product-price"><%= @product.price %></span></h1>
                 <p class="lead"><%= @product.description %></p>
                 <%= link_to '/shop/cart', :class => 'btn btn-lg btn-success', :data => {action: 'click->cart#onAddToCart',

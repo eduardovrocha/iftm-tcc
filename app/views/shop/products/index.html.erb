@@ -46,12 +46,6 @@
       </div>
     </div>
 
-    <style>
-      .card-body > p {
-        min-height: 80px;
-      }
-    </style>
-
     <div class="row">
 
       <% @products.each do |product| %>
@@ -59,15 +53,14 @@
         <div class="col-md-4">
           <div class="card mb-4 shadow-sm">
 
-            <style>
-              .box-img {
-                height: 340px;
-                overflow: hidden;
-              }
-            </style>
-
             <div class="box-img">
-              <!-- product image -->
+              <%= link_to shop_product_detail_path(product) do %>
+                <% if product.img_url.large.blank? %>
+                  <%= image_tag('img-not-found-large.png', :class => 'large_center float-left', :alt => 'Product Cover') %>
+                <% else %>
+                  <img src="<%= product.img_url.large %>" class="large_center float-left" alt="Product Cover">
+                <% end %>
+              <% end %>
             </div>
 
             <div class="card-body">
