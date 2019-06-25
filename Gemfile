@@ -38,6 +38,9 @@ gem 'mini_magick'
 gem 'fog-aws'
 gem 'aws-sdk', '~> 2'
 
+# authenticate
+gem 'devise'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 
