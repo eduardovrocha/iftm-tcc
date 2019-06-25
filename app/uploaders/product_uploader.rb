@@ -1,5 +1,4 @@
 class ProductUploader < CarrierWave::Uploader::Base
-
   include CarrierWave::MiniMagick
 
   # após o upload da imagem
@@ -14,11 +13,7 @@ class ProductUploader < CarrierWave::Uploader::Base
 
   # define o tipo de armazenamento de acordo
   # com cada ambiente funcionando
-  if Rails.env.development?
-    storage :file
-  else
-    storage :fog
-  end
+  storage :fog
 
   # define o diretório para armazenamento
   # das imagens que são carregadas

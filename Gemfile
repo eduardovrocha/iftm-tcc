@@ -25,6 +25,9 @@ gem 'jbuilder', '~> 2.5'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
+# work with .env files
+gem 'dotenv-rails', groups: [:development, :test]
+
 # will_paginate
 gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-bootstrap4'
@@ -32,7 +35,8 @@ gem 'will_paginate-bootstrap4'
 # for upload images and save at Amazon
 gem 'carrierwave', '~> 1.0'
 gem 'mini_magick'
-#
+gem 'fog-aws'
+gem 'aws-sdk', '~> 2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
