@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Curso Ruby on Rails / Erubis</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_pack_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'admin', 'data-turbolinks-track': 'reload' %>
+
+</head>
+
+<body data-controller="<%= controller_name %>">
+
+<%= yield %>
+
+</body>
+</html>
