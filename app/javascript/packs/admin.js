@@ -10,6 +10,7 @@ require("flatpickr/dist/flatpickr.css")
 require("channels")
 
 import "flatpickr"
+import "jquery-mask-plugin"
 
 import '../stylesheets/application.scss'
 
@@ -30,6 +31,8 @@ document.addEventListener("turbolinks:load", () => {
         altFormat: "F j, Y",
         dateFormat: "Y-m-d",
     })
+
+    $('.fone').mask('(00) 0 0000-0000');
 
 })
 
