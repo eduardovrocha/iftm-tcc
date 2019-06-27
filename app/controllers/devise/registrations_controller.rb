@@ -17,7 +17,7 @@ class Devise::RegistrationsController < DeviseController
     yield resource if block_given?
     if resource.persisted?
       if resource.active_for_authentication?
-        set_flash_message! :notice, :signed_up
+        set_flash_messages(notice: 'success sign up', kind: 'success', tittle: 'Success')
         sign_up(resource_name, resource)
         respond_with resource, location: after_sign_up_path_for(resource)
       end

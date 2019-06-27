@@ -9,6 +9,7 @@ require("@rails/activestorage").start()
 require("flatpickr/dist/flatpickr.css")
 require("channels")
 
+import "bootstrap"
 import "flatpickr"
 import "jquery-mask-plugin"
 
@@ -33,6 +34,7 @@ document.addEventListener("turbolinks:load", () => {
     })
 
     $('.fone').mask('(00) 0 0000-0000');
+    $('.toast').toast('show');
 
 })
 

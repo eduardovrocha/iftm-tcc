@@ -28,11 +28,14 @@ class Admin::ProductsController < Admin::AdminController
 
     respond_to do |format|
       if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
-        format.json { render :show, status: :created, location: @product }
+        format.html {
+          redirect_to @product
+          set_flash_messages(notice: 'Product was successfully created.', kind: 'success', tittle: 'Success')
+        }
+        format.json {render :show, status: :created, location: @product}
       else
-        format.html { render :new }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
+        format.html {render :new}
+        format.json {render json: @product.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -43,13 +46,16 @@ class Admin::ProductsController < Admin::AdminController
     respond_to do |format|
       if @product.update(product_params)
         format.html {
-          redirect_to admin_product_path(@product),
-                      notice: 'Product was successfully created.'
+          redirect_to admin_product_path(@product)
+          set_flash_messages(notice: 'product successful updated', kind: 'success', tittle: 'Success')
         }
         format.json {render :show, status: :created, location: @product}
       else
-        format.html { render :edit }
-        format.json { render json: @product.errors, status: :unprocessable_entity }
+        format.html {
+          render :edit
+          set_flash_messages(notice: 'product can\'t be updated', kind: 'error', tittle: 'Error')
+        }
+        format.json {render json: @product.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -59,19 +65,23 @@ class Admin::ProductsController < Admin::AdminController
   def destroy
     @product.destroy
     respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html {
+        redirect_to products_url
+        set_flash_messages(notice: 'Product was successfully destroyed.', kind: 'success', tittle: 'Success')
+      }
+      format.json {head :no_content}
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_product
-      @product = Product.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def product_params
-      params.require(:product).permit(:name, :price, :category_id, :img_url, :description)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_product
+    @product = Product.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def product_params
+    params.require(:product).permit(:name, :price, :category_id, :img_url, :description)
+  end
 end

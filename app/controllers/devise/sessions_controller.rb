@@ -16,19 +16,20 @@ class Devise::SessionsController < DeviseController
   def create
     self.resource = warden.authenticate(auth_options)
     if self.resource
-      set_flash_message(:notice, :signed_in) if is_flashing_format?
+      set_flash_messages(notice: 'success sign in', kind: 'success', tittle: 'Success')
       sign_in(resource_name, resource)
       yield resource if block_given?
       redirect_to after_sign_in_path_for(resource)
     else
-      redirect_back(fallback_location: root_path, notice: 'Sorry but, we cant validate your access')
+      set_flash_messages(notice: 'sign in failed', kind: 'error', tittle: 'Error')
+      redirect_to '/users/sign_in'
     end
   end
 
   # DELETE /resource/sign_out
   def destroy
     signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))
-    set_flash_message! :notice, :signed_out if signed_out
+    set_flash_messages(notice: 'success sign out', kind: 'success', tittle: 'Success')
     yield if block_given?
     respond_to_on_destroy
   end
