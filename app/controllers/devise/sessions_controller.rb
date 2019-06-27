@@ -25,6 +25,14 @@ class Devise::SessionsController < DeviseController
     end
   end
 
+  # DELETE /resource/sign_out
+  def destroy
+    signed_out = (Devise.sign_out_all_scopes ? sign_out : sign_out(resource_name))
+    set_flash_message! :notice, :signed_out if signed_out
+    yield if block_given?
+    respond_to_on_destroy
+  end
+
   protected
 
   def sign_in_params
@@ -40,6 +48,17 @@ class Devise::SessionsController < DeviseController
 
   def auth_options
     {scope: resource_name, recall: "#{controller_path}#new"}
+  end
+
+  private
+
+  def respond_to_on_destroy
+    # We actually need to hardcode this as Rails default responder doesn't
+    # support returning empty response on GET request
+    respond_to do |format|
+      format.all {head :no_content}
+      format.any(*navigational_formats) {redirect_to after_sign_out_path_for(resource_name)}
+    end
   end
 
 end

@@ -55,10 +55,10 @@
           </li>
           <li class="nav-item text-nowrap" style="margin-right: 15px">
             <% if user_signed_in? %>
-              <%= link_to(destroy_user_session_path, method: :get, class: 'nav-link') do %>
+              <%= link_to(destroy_user_session_path, method: :delete, class: 'nav-link') do %>
                 <i class="fe fe-logout"></i>Logout
               <% end %>
-            <% else %>
+          <% else %>
               <%= link_to('Login', new_user_session_path, class: 'nav-link') %>
             <% end %>
           </li>
