@@ -1,4 +1,7 @@
 class Devise::RegistrationsController < DeviseController
+  prepend_before_action :require_no_authentication, only: [:new, :create, :cancel]
+  prepend_before_action :authenticate_scope!, only: [:edit, :update, :destroy]
+  prepend_before_action :set_minimum_password_length, only: [:new, :edit]
 
   # GET /resource/sign_up
   def new
@@ -14,13 +17,9 @@ class Devise::RegistrationsController < DeviseController
     yield resource if block_given?
     if resource.persisted?
       if resource.active_for_authentication?
-        set_flash_message! :notice, :signed_up
+        set_flash_messages(notice: 'success sign up', kind: 'success', tittle: 'Success')
         sign_up(resource_name, resource)
         respond_with resource, location: after_sign_up_path_for(resource)
-      else
-        set_flash_message! :notice, :"signed_up_but_#{resource.inactive_message}"
-        expire_data_after_sign_in!
-        respond_with resource, location: after_inactive_sign_up_path_for(resource)
       end
     else
       clean_up_passwords resource
@@ -41,12 +40,14 @@ class Devise::RegistrationsController < DeviseController
     devise_parameter_sanitizer.sanitize(:sign_up)
   end
 
-  # Signs in a user on sign up.
+  # Signs in a user on sign up. You can overwrite this method in your own
+  # RegistrationsController.
   def sign_up(resource_name, resource)
     sign_in(resource_name, resource)
   end
 
-  # The path used after sign up.
+  # The path used after sign up. You need to overwrite this method
+  # in your own RegistrationsController.
   def after_sign_up_path_for(resource)
     after_sign_in_path_for(resource) if is_navigational_format?
   end

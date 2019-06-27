@@ -1,3 +1,14 @@
 @import "~bootstrap/scss/bootstrap";
 @import "admin/styles";
 @import "shop/styles";
+
+.success {
+  color: green;
+}
+.error {
+  color: red;
+}
+
+.alert {
+  color: orange;
+}

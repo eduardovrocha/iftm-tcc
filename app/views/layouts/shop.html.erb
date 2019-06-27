@@ -4,7 +4,6 @@
   <title>Curso Ruby on Rails / Erubis</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= stylesheet_pack_tag 'shop', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'shop', 'data-turbolinks-track': 'reload' %>
 </head>
@@ -45,7 +44,9 @@
 
         <ul id="shop-menu" class="navbar-nav px-3" style="display: -webkit-inline-box">
           <li class="nav-item text-nowrap">
-            <!-- user identification -->
+            <% if user_signed_in? %>
+              <%= link_to current_user.name, {}, :class => 'nav-link user-signed' %>
+            <% end %>
           </li>
           <li class="nav-item text-nowrap">
             <a href="/shop/cart" class="nav-link my-cart" id="items-on-cart">
@@ -53,7 +54,13 @@
             </a>
           </li>
           <li class="nav-item text-nowrap" style="margin-right: 15px">
-            <!-- user identification -->
+            <% if user_signed_in? %>
+              <%= link_to(destroy_user_session_path, method: :delete, class: 'nav-link') do %>
+                <i class="fe fe-logout"></i>Logout
+              <% end %>
+          <% else %>
+              <%= link_to('Login', new_user_session_path, class: 'nav-link') %>
+            <% end %>
           </li>
         </ul>
 
@@ -87,24 +94,6 @@
 
 </footer>
 
+<%= render 'layouts/flash_message' %>
+
 </body>
-
-<!-- Position it -->
-<div style="position: absolute; top: 74px; right: 9px; z-index: 10000">
-
-  <!-- Then put toasts within -->
-  <div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2500" data-autohide="true">
-    <div class="toast-header">
-      <i class="fe messages-toast-icon fe-check-circle message-success"></i>
-      <strong class="mr-auto">Ok !</strong>
-      <small class="text-muted"></small>
-      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    <div class="toast-body">
-      Product successfully added to your cart
-    </div>
-  </div>
-
-</div>

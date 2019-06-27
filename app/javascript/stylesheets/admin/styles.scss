@@ -311,9 +311,69 @@ h1#title-restrict-area {
   color: #777;
 }
 
+
 .signin-block {
   width: 100%;
   float: left;
+}
+
+.messages-toast-icon {
+  margin-right: 10px;
+}
+
+.message-success {
+  color: green;
+}
+
+.message-info {
+  color: green;
+}
+
+.message-warning {
+  color: green;
+}
+
+.message-alert {
+  color: green;
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  input {
+    border-color: red;
+  }
+}
+
+#error_explanation {
+
+  background-color: #f0f0f0;
+  width: 100%;
+  border: 1px solid red;
+  width: 100%;
+  float: left;
+  margin-bottom: 17px;
+
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px -7px 0;
+    background-color: #c00;
+    color: #fff;
+  }
+
+  ul li {
+    padding: 5px 25px;
+    float: left;
+    width: 100%;
+    font-size: 12px;
+    font-family: Verdana;
+  }
 }
 
 /* Fallback for Edge

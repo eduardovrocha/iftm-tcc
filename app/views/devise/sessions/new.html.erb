@@ -11,7 +11,6 @@
             <strong>Educandoweb</strong>
           </a>
         </h1>
-
         <p><strong class="badge badge-info">Sign in</strong></p>
       </div>
     </div>
@@ -29,9 +28,6 @@
     <div class="form-row">
       <div class="col">
         <%= f.password_field :password, autocomplete: "new-password", placeholder: 'password', class: "form-control" %>
-        <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br/>
       </div>
     </div>
   </div>

@@ -8,6 +8,8 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 
+import "bootstrap"
+
 import '../stylesheets/application.scss'
 
 // Load all the controllers within this directory and all subdirectories.
@@ -21,7 +23,7 @@ const context_shop = require.context("controllers/shop", true, /.js$/)
 application.load(definitionsFromContext(context_shop))
 
 document.addEventListener("turbolinks:load", () => {
-
+    $('.toast').toast('show');
 })
 
 // Uncomment to copy all static images under ../images to the output folder and reference
