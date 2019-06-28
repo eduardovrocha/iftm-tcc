@@ -21,8 +21,8 @@ Product.create!([
 ])
 
 User.create!([
-    {name: 'Eduardo', email: 'evr.online.lessons@gmail.com', phone: '34 9 9113-9183'},
-    {name: 'Nelio', email: 'nelio.cursos@gmail.com', phone: '34 9 9000-0009'}
+    {name: 'Eduardo', email: 'evr.online.lessons@gmail.com', phone: '34 9 9113-9183', password: '123456'},
+    {name: 'Nelio', email: 'nelio.cursos@gmail.com', phone: '34 9 9000-0009', password: '123456'}
 ])
 
 Order.create!([
