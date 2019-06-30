@@ -26,6 +26,7 @@ class Devise::RegistrationsController < DeviseController
       set_minimum_password_length
       respond_with resource
     end
+    resource.after_save(current_user.id, 'guest')
   end
 
   protected

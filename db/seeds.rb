@@ -25,6 +25,11 @@ User.create!([
     {name: 'Nelio', email: 'nelio.cursos@gmail.com', phone: '34 9 9000-0009', password: '123456'}
 ])
 
+Role.create!([
+    {ability: 'admin', user_id: 1},
+    {ability: 'admin', user_id: 2}
+             ])
+
 Order.create!([
     {moment: Date.new(2019, 2, 13), order_status: OrderStatus.statuses[:waiting_payment], user_id: 1},
     {moment: Date.new(2019, 2, 12), order_status: OrderStatus.statuses[:paid], user_id: 1},

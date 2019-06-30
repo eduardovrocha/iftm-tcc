@@ -16,11 +16,21 @@
   <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
     <a id="nav-bar-brand-link" class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Educando Web</a>
     <ul class="navbar-nav px-3" style="display: -webkit-inline-box">
+
       <li class="nav-item text-nowrap">
         <% if user_signed_in? %>
           <%= link_to current_user.name, {}, :class => 'nav-link user-signed' %>
         <% end %>
       </li>
+
+      <li class="nav-item text-nowrap">
+        <% if user_signed_in? %>
+          <%= link_to(shop_root_path, class: 'nav-link') do %>
+            <i class="fe fe-shopping-bag"></i>Shop
+          <% end %>
+        <% end %>
+      </li>
+
       <li class="nav-item text-nowrap" style="margin-right: 15px">
         <% if user_signed_in? %>
           <%= link_to(destroy_user_session_path, method: :delete, class: 'nav-link') do %>
@@ -30,6 +40,7 @@
           <%= link_to('Login', new_user_session_path, class: 'nav-link') %>
         <% end %>
       </li>
+
     </ul>
   </nav>
 
