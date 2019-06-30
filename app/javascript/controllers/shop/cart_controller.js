@@ -20,6 +20,7 @@ export default class extends Controller {
             $(liModel).clone().prependTo('#cart-products');
             let itemLi = $('#cart-products > li.order-item').first()
             if (itemLi.length > 0) {
+
                 /*
                     set view values
                 */
@@ -27,13 +28,15 @@ export default class extends Controller {
                 itemLi.find('.item-qtd')[0].innerText = item.quantity
                 itemLi.find('.item-vlr-und')[0].innerText = item.price
                 itemLi.find('.item-vlr-total')[0].innerText = this.formatDecimalValue(this.subTotal(item.price, item.quantity))
-                itemLi.find('.item-img-product > img')[0].setAttribute('src',item.img_url.thumb.url)
+                itemLi.find('.item-img-product > img')[0].setAttribute('src', item.img_url.thumb.url)
+
                 /*
                     set data-product_id
                 */
                 itemLi.find('.add-qty')[0].setAttribute('data-product_id', item.product_id)
                 itemLi.find('.rem-qty')[0].setAttribute('data-product_id', item.product_id)
                 itemLi.find('.delete-item')[0].setAttribute('data-product_id', item.product_id)
+
             }
 
         }).then(() => {
@@ -41,7 +44,10 @@ export default class extends Controller {
             /*
                 set items amount on cart
             */
-            $('#your-cart-items')[0].innerText = this.getCart().items.length
+            if ($('#your-cart-items')[0] != undefined) {
+                $('#your-cart-items')[0].innerText = this.getCart().items.length
+                $('#cartItems')[0].innerText = this.getCart().items.length
+            }
 
             /*
                 calculate order total
