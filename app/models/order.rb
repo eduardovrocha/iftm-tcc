@@ -37,4 +37,8 @@ class Order < ApplicationRecord
     sum
   end
 
+  def self.load_user_orders(user_id)
+    Order.all.where(:user_id => user_id)
+  end
+
 end

@@ -4,7 +4,7 @@ class Shop::UsersController < Shop::ShopController
   before_action :authenticate_user!
 
   def show
-    @user_orders = Order.all
+    @user_orders = Order.load_user_orders(params[:user_id])
   end
 
   def update_info

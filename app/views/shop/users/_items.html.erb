@@ -1,0 +1,10 @@
+<% order.order_items.each do |item| %>
+
+  <tr>
+    <td><%= item.product.name %></td>
+    <td>$ <%= item.product.price %></td>
+    <td><%= item.quantity %></td>
+    <td>$ <%= item.sub_total %></td>
+  </tr>
+
+<% end %>
