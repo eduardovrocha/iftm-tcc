@@ -29,6 +29,18 @@ class Devise::RegistrationsController < DeviseController
     resource.after_save(current_user.id, 'guest')
   end
 
+  # PUT /resource
+  # We need to use a copy of the resource because we don't want to change
+  # the current user in place.
+  def update
+    self.resource = resource_class.to_adapter.get!(send(:"current_#{resource_name}").to_key)
+    if resource.update(name: params[:user]['name'], phone: params[:user]['phone'])
+      redirect_to shop_user_profile_path(resource.id)
+    else
+      redirect_to '/'
+    end
+  end
+
   protected
 
   # Build a devise resource passing in the session. Useful to move
@@ -51,6 +63,12 @@ class Devise::RegistrationsController < DeviseController
   # in your own RegistrationsController.
   def after_sign_up_path_for(resource)
     after_sign_in_path_for(resource) if is_navigational_format?
+  end
+
+  # Authenticates the current scope and gets the current resource from the session.
+  def authenticate_scope!
+    send(:"authenticate_#{resource_name}!", force: true)
+    self.resource = send(:"current_#{resource_name}")
   end
 
 end
