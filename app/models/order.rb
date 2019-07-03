@@ -29,6 +29,16 @@ class Order < ApplicationRecord
     return Order.all
   end
 
+  def self.create_user_order(user_id, order_items)
+    ActiveRecord::Base.transaction do
+      @order = Order.create({moment: Date.today, order_status: 0, user_id: user_id})
+      order_items.each do |index, item|
+        OrderItem.create!({order_id: @order.id, product_id: item[:product_id], quantity: item[:quantity], price: item[:price]})
+      end
+    end
+    @order
+  end
+
   def total
     sum = 0
     order_items.each do |item|

@@ -147,3 +147,20 @@ footer p {
 .span-info-order-right {
   text-align: right;
 }
+
+.order-product-item {
+  padding-right: 10px !important;
+  padding-left: 10px !important;
+}
+
+.order-item-body {
+  width: 100%;
+  .img-product {
+    float: left;
+    margin-right: 10px;
+  }
+}
+
+.order-product-total {
+  margin-top: 10px;
+}

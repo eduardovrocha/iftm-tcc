@@ -1,0 +1,68 @@
+<!-- Modal Confirm Order -->
+
+<div class="modal fade" id="finish-order-confirm" aria-labelledby="modalLabel" role="dialog" tabindex="-1">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Do you confirm your Order</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ul id="order-products-confirm" class="list-group mb-3">
+
+          <li class="order-product-item list-group-item d-flex justify-content-between bg-light">
+
+            <div class="order-item-body" data-info="">
+
+              <!-- image -->
+
+              <div class="img-product">
+                <img src="#" width="100" height="100" alt="#" class="img-thumbnail">
+              </div>
+
+              <!-- name -->
+
+              <h6 class="my-0 message-success" data-id="">
+                <a href="#" class="item-product-name">undefined !</a>
+              </h6>
+
+              <!-- unit price -->
+
+              <span>
+                <small style="margin-right: 20px">
+                  <strong>Unit Price: $ </strong><span class="item-vlr-und">undefined !</span>
+                </small>
+              </span><br>
+
+              <!-- quantity -->
+
+              <small class="atention-info">
+                <strong>Quantity: </strong><span class="item-qtd">undefined !</span>
+              </small>
+
+              <h6 class="order-product-total">
+                <strong>$ <span class="order-item-total">undefined !</span></strong>
+              </h6>
+
+            </div>
+
+          </li>
+        </ul>
+
+        <div class="list-group-item d-flex justify-content-between">
+          <span><strong>Total (USD)</strong></span>
+          <span>$ <strong id="order-total-value">undefined !</strong></span>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-warning" data-dismiss="modal">Cancel Order</button>
+        <button type="button" class="btn btn-success" data-action="click->cart#checkoutOrder">Yes, please finish my
+          Order
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

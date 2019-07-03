@@ -88,6 +88,88 @@ export default class extends Controller {
         }
     }
 
+    // cart finish order
+
+    /*
+   Pass to backend, order content
+   data: {'order':{}}
+   */
+    checkCart(event) {
+        let cart = this.getCart().items
+        let _htmlModel = $('#order-products-confirm')[0].firstElementChild
+        $('#order-products-confirm').empty()
+        this.asyncForEach(cart, async (item, index) => {
+            $(_htmlModel).clone().prependTo('#order-products-confirm')
+        }).then(() => {
+            //     this.asyncEach($('.order-product-item'), async (item, index) => {
+            //         if (order[index] != undefined) {
+            //             $(item).find('.img-thumbnail')[0].setAttribute('src', order[index].img)
+            //             $(item).find('.item-product-name')[0].innerText = order[index].name
+            //             $(item).find('.item-qtd')[0].innerText = order[index].quantity
+            //             $(item).find('.item-vlr-und')[0].innerText = order[index].price
+            //             $(item).find('.order-item-total')[0].innerText = this.formatDecimalValue(order[index].price * order[index].quantity)
+            //         }
+            this.asyncForEach($('.order-product-item'), async (item, index) => {
+                if (cart[index] != undefined) {
+                    $(item).find('.img-thumbnail')[0].setAttribute('src', cart[index].img_url['thumb'].url)
+                    $(item).find('.item-product-name')[0].innerText = cart[index].name
+                    $(item).find('.item-qtd')[0].innerText = cart[index].quantity
+                    $(item).find('.item-vlr-und')[0].innerText = this.formatDecimalValue(cart[index].price)
+                    $(item).find('.order-item-total')[0].innerText = this.formatDecimalValue(cart[index].price * cart[index].quantity)
+                }
+            }).then(() => {
+
+                /*
+                calculate order total
+            */
+                let _total = 0
+                this.asyncForEach($('.order-item-total'), async (item, index) => {
+                    _total = _total + parseFloat(item.innerText)
+                }).then(() => {
+                    if ($('#order-total-value').length > 0) {
+                        $('#order-total-value')[0].innerText = this.formatDecimalValue(_total)
+                    }
+                })
+
+                $('#finish-order-confirm').modal('show')
+
+            })
+        })
+    }
+
+    /*
+ finish order
+ */
+    checkoutOrder(event) {
+
+        let userID = $('#finish-order')[0].getAttribute('data-userId')
+        let cart = this.getCart()
+
+        $.ajax({
+            url: '/shop/orders/new',
+            data: {
+                'order': {
+                    'user_id': userID,
+                    'order_items': cart.items
+                }
+            },
+            type: 'get',
+            beforeSend: function (xhr, orderItems) {
+                xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+            },
+            success: function () {
+                localStorage.setItem("cart", JSON.stringify({"items": [], "date_time": Date.now()}));
+                /* redirect to user profile temporarily */
+                window.location.href = "users/"+ userID +"/profile";
+                /* -- */
+            },
+            error: function () {
+                console.log('error')
+            }
+        })
+
+    }
+
     // EVENT HANDLERS (RECEBE EVENTOS DO USUARIO, MUDA O MODEL E ATUALIZA A VIEW)
 
     onAddToCart(event) {
