@@ -18,6 +18,7 @@ Rails.application.routes.draw do
     get '/cart', to: 'carts#show', as: 'cart'
     get '/users/:user_id/profile', to: 'users#show', as: 'user_profile'
     get '/orders/new', to: 'orders#new', as: 'user_new_order'
+    get '/orders/users/:user_id/last', to: 'orders#last', as: 'user_last_order'
   end
 
   devise_for :users, controllers: {

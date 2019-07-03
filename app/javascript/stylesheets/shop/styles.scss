@@ -164,3 +164,23 @@ footer p {
 .order-product-total {
   margin-top: 10px;
 }
+
+ul#last-order-items {
+  li {
+    div.img-product {
+      width: 100px;
+      height: 100px;
+      margin-right: 15px;
+      float: left;
+      img {
+        width: 100%;
+      }
+    }
+    div.detail-product {
+      float: left;
+      h6 {
+        width: 100%;
+      }
+    }
+  }
+}

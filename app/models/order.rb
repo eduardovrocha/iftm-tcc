@@ -51,4 +51,8 @@ class Order < ApplicationRecord
     Order.all.where(:user_id => user_id)
   end
 
+  def self.last_user_order(user_id)
+    User.find(user_id).orders.last
+  end
+
 end

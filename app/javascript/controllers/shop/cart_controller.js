@@ -159,9 +159,7 @@ export default class extends Controller {
             },
             success: function () {
                 localStorage.setItem("cart", JSON.stringify({"items": [], "date_time": Date.now()}));
-                /* redirect to user profile temporarily */
-                window.location.href = "users/"+ userID +"/profile";
-                /* -- */
+                window.location.href = "/shop/orders/users/" + userID + "/last";
             },
             error: function () {
                 console.log('error')

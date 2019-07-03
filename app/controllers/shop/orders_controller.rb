@@ -6,4 +6,8 @@ class Shop::OrdersController < Shop::ShopController
     @order = Order.create_user_order(params['order']['user_id'], params['order']['order_items'])
   end
 
+  def last
+    @order = Order.last_user_order(params['user_id'])
+  end
+
 end
