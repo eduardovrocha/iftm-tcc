@@ -22,6 +22,18 @@
   }
 }
 
+#profile-options {
+  margin-left: 10px !important;
+  a {
+    color: black !important;
+  }
+  .nav-link {
+    i.fe {
+      margin-right: 7px;
+    }
+  }
+}
+
 #nav-bar-brand-link {
   padding-top: 12px !important;
   padding-bottom: 12px !important;
@@ -108,4 +120,12 @@ footer p {
 }
 .item-info-product {
   float: left;
+}
+
+// user profile
+
+.nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
+  color: #495057;
+  background-color: #fff;
+  border-color: #dee2e6 #dee2e6 #fff;
 }

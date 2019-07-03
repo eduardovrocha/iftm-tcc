@@ -46,7 +46,7 @@
 
           <li class="nav-item text-nowrap">
             <% if user_signed_in? %>
-              <%= link_to current_user.name, {}, :class => 'nav-link user-signed' %>
+              <%= link_to current_user.name, shop_user_profile_path(current_user), :class => 'nav-link user-signed' %>
             <% end %>
           </li>
 
