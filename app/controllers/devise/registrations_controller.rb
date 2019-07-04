@@ -29,6 +29,11 @@ class Devise::RegistrationsController < DeviseController
     resource.after_save(current_user.id, 'guest')
   end
 
+  # GET /resource/edit
+  def edit
+    render :edit
+  end
+
   # PUT /resource
   # We need to use a copy of the resource because we don't want to change
   # the current user in place.
