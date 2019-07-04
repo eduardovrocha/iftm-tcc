@@ -35,8 +35,24 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.perform_caching = false
 
-  # setup local environment
+  # setup local environment --> Definir em qual IP e Porta a aplicação roda local
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  # Configurações do Devise
+
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      address: "smtp.gmail.com",
+      port: 587,
+      domain: 'gmail.com',
+      authentication: 'plain',
+      enable_starttls_auto: true,
+      user_name: 'evr.online.lessons',
+      password: '2019HaveFaith'
+  }
+
+  #
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
