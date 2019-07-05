@@ -19,4 +19,24 @@ class Devise::PasswordsController < DeviseController
     end
   end
 
+  # GET /resource/password/edit?reset_password_token=abcdef
+  def edit
+    self.resource = resource_class.new
+    set_minimum_password_length
+    resource.reset_password_token = params[:reset_password_token]
+  end
+
+  # PUT /resource/password
+  def update
+    self.resource = resource_class.reset_password_by_token(resource_params)
+    yield resource if block_given?
+
+    if resource.errors.empty?
+      redirect_to '/users/sign_in', notice: 'Now you can try access'
+    else
+      set_minimum_password_length
+      respond_with resource
+    end
+  end
+
 end
