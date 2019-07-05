@@ -16,6 +16,7 @@ class Devise::RegistrationsController < DeviseController
     resource.save
     yield resource if block_given?
     if resource.persisted?
+      resource.after_save(resource.id, 'guest')
       if resource.active_for_authentication?
         set_flash_messages(notice: 'success sign up', kind: 'success', tittle: 'Success')
         sign_up(resource_name, resource)
@@ -26,7 +27,6 @@ class Devise::RegistrationsController < DeviseController
       set_minimum_password_length
       respond_with resource
     end
-    resource.after_save(current_user.id, 'guest')
   end
 
   # GET /resource/edit
