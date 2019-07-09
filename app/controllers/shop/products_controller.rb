@@ -10,7 +10,7 @@ class Shop::ProductsController < Shop::ShopController
       @_products = Product.search_params(params)
     end
     @products_size = @_products.count
-    @products = @_products.paginate(page: params[:page], per_page: 5)
+    @products = @_products.paginate(page: params[:page], per_page: 6)
   end
 
   def show

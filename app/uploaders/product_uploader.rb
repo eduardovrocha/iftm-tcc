@@ -13,7 +13,11 @@ class ProductUploader < CarrierWave::Uploader::Base
 
   # define o tipo de armazenamento de acordo
   # com cada ambiente funcionando
-  storage :fog
+  if Rails.env.development?
+    storage :file
+  else
+    storage :fog
+  end
 
   # define o diretório para armazenamento
   # das imagens que são carregadas

@@ -82,7 +82,7 @@
 
     <div class="form-group">
       <div class="form-row">
-        <!-- paginate -->
+        <%= will_paginate @products, renderer: WillPaginate::ActionView::BootstrapLinkRenderer, list_classes: ['pagination pagination-sm'] %>
       </div>
     </div>
 
