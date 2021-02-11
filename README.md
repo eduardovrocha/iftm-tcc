@@ -1,24 +1,30 @@
-# README
+# Product Name
+> Short blurb about what your product does.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![NPM Version][npm-image]][npm-url]
+[![Build Status][travis-image]][travis-url]
+[![Downloads Stats][npm-downloads]][npm-url]
 
-Things you may want to cover:
+One to two paragraph statement about your product and what it does.
 
-* Ruby version
+![](header.png)
 
-* System dependencies
+## Installation
 
-* Configuration
+OS X & Linux:
 
-* Database creation
+```sh
+npm install my-crazy-module --save
+```
 
-* Database initialization
+Windows:
 
-* How to run the test suite
+```sh
+edit autoexec.bat
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+## Usage example
 
-* Deployment instructions
+A few motivating and useful examples of how your product can be used. Spice this up with code blocks and potentially more screenshots.
 
-* ...
+_For more examples and usage, please refer to the [Wiki][wiki]._
