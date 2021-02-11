@@ -29,7 +29,7 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-bootstrap4'
 
 # for upload images and save at Amazon
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 gem 'mini_magick'
 gem 'fog-aws'
 gem 'aws-sdk', '~> 2'
